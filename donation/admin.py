@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import FoodItem,Claim,DonationHistory
+
+
+admin.site.register(FoodItem)
+
+admin.site.register(Claim)
+
+admin.site.register(DonationHistory)
