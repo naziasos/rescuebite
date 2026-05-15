@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+    Profile List
+</h1>
+<hr>
+{% for profile in profiles %}
+    <h3>
+        {{ profile.user.username }}
+    </h3>
+    <p>
+        User Type:
+        {{ profile.user_type }}
+    </p>
+    <p>
+        Phone:
+        {{ profile.phone }}
+    </p>
+    <p>
+        Address:
+        {{ profile.address }}
+    </p>
+    <hr>
+
+{% endfor %}
+{% endblock %}
+</body>
+</html>

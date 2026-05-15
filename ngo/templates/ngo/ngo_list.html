@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>NGO List</h1>
+
+<hr>
+
+{% for ngo in ngos %}
+
+    <h3>{{ ngo.ngo_name }}</h3>
+
+    <p>User: {{ ngo.user.username }}</p>
+
+    <hr>
+
+{% endfor %}
+
+{% endblock %}
+</body>
+</html>

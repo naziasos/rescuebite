@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Delivery List</h1>
+<hr>
+{% for delivery in deliveries %}
+    <p>
+        Status: {{ delivery.status }}
+    </p>
+    <p>
+        Claim ID: {{ delivery.claim.id }}
+    </p>
+    <p>
+        Volunteer: {{ delivery.volunteer.user.username }}
+    </p>
+    <hr>
+
+{% endfor %}
+
+{% endblock %}
+</body>
+</html>
