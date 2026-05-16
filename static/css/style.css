@@ -9,7 +9,7 @@ body{
 
 .navbar{
 
-    background:#0d6efd;
+    background:#1b4332;
 
     color:white;
 
@@ -60,7 +60,7 @@ body{
 
     font-size:50px;
 
-    color:#0d6efd;
+    color:black;
 }
 
 .hero p{
@@ -72,7 +72,7 @@ body{
 
 .btn{
 
-    background:#0d6efd;
+    background:#2d6a4f;
 
     color:white;
 
@@ -107,5 +107,36 @@ body{
 
 .card h2{
 
-    color:#0d6efd;
+    color:#2d6a4f;
+}
+.nav-links a:hover{
+
+    color:#95d5b2;
+}
+
+.btn:hover{
+
+    background:#1b4332;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    transition:0.3s;
+}
+.logo{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:white;
+
+    letter-spacing:1px;
+}
+
+.logo span{
+
+    color:#95d5b2;
 }
