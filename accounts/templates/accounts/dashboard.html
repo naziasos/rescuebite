@@ -9,25 +9,194 @@
 
 {% block content %}
 
-<h1>
+<div class="dashboard-layout">
 
-    Welcome {{ request.user.username }}
+<div class="sidebar">
 
-</h1>
+    <h2>
 
-<hr>
+        Dashboard
 
-<p>
+    </h2>
 
-    You are successfully logged in.
+    <a href="/dashboard/">
 
-</p>
+        📊 Dashboard
 
-<a href="/logout/" class="btn">
+    </a>
 
-    Logout
+    <a href="/donation/foods/">
 
-</a>
+        🍱 Food Items
+
+    </a>
+
+    <a href="/donation/claims/">
+
+        📋 Claims
+
+    </a>
+
+    <a href="/delivery/deliveries/">
+
+        🚚 Deliveries
+
+    </a>
+
+    <a href="/notifications/">
+
+        🔔 Notifications
+
+    </a>
+
+    <a href="/logout/"
+       class="logout-link">
+
+        🚪 Logout
+
+    </a>
+
+</div>
+
+    <div class="dashboard-content">
+
+        <h1>
+
+            Welcome {{ request.user.username }}
+
+        </h1>
+
+        <p>
+
+            Manage food donations and help people in need.
+
+        </p>
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <span class="icon">
+
+            🍱
+
+        </span>
+
+        <h2>
+
+            {{ food_count }}
+
+        </h2>
+
+        <p>
+
+            Food Donations
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span class="icon">
+
+            📋
+
+        </span>
+
+        <h2>
+
+            {{ claim_count }}
+
+        </h2>
+
+        <p>
+
+            Claims
+
+        </p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span class="icon">
+
+            🚚
+
+        </span>
+
+        <h2>
+
+            {{ delivery_count }}
+
+        </h2>
+
+        <p>
+
+            Deliveries
+
+        </p>
+
+    </div>
+
+</div>
+
+        <div class="quick-actions">
+
+            <div class="action-card">
+
+                <h3>
+
+                    Add Food
+
+                </h3>
+
+                <a href="/donation/create-food/" class="btn">
+
+                    Add
+
+                </a>
+
+            </div>
+
+            <div class="action-card">
+
+                <h3>
+
+                    View Claims
+
+                </h3>
+
+                <a href="/donation/claims/" class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+            <div class="action-card">
+
+                <h3>
+
+                    Deliveries
+
+                </h3>
+
+                <a href="/delivery/deliveries/" class="btn">
+
+                    Manage
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}
 </body>

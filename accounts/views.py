@@ -7,6 +7,9 @@ from django.contrib.auth import authenticate,login,logout
 from .models import Profile, Notification
 
 from .forms import ProfileForm, NotificationForm
+from donation.models import FoodItem
+from donation.models import Claim
+from delivery.models import Delivery
 
 # homepage
 def home(request):
@@ -189,8 +192,32 @@ def register_page(request):
 
 def dashboard(request):
 
+    food_count = FoodItem.objects.filter(
+        restaurant=request.user
+    ).count()
+
+    claim_count = Claim.objects.filter(
+        ngo=request.user
+    ).count()
+
+    delivery_count = Delivery.objects.filter(
+
+        volunteer__user=request.user
+
+    ).count()
+
+    context = {
+
+        'food_count':food_count,
+
+        'claim_count':claim_count,
+
+        'delivery_count':delivery_count,
+    }
+
     return render(request,
-                  'accounts/dashboard.html')
+                  'accounts/dashboard.html',
+                  context)
 def logout_page(request):
 
     logout(request)

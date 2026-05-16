@@ -9,55 +9,67 @@
 
 {% block content %}
 
-<h1>
+<div class="login-container">
 
-    Login
+    <div class="login-box">
 
-</h1>
+        <h1>
 
-<hr>
+            Welcome Back
 
-{% if error %}
+        </h1>
 
-<p>
+        <p>
 
-    {{ error }}
+            Login to your account
 
-</p>
+        </p>
 
-{% endif %}
+        {% if error %}
 
-<form method="POST">
+        <p class="error">
 
-    {% csrf_token %}
+            {{ error }}
 
-    <p>
+        </p>
 
-        Username
+        {% endif %}
 
-    </p>
+        <form method="POST">
 
-    <input type="text"
-           name="username">
+            {% csrf_token %}
 
-    <p>
+            <input type="text"
+                   name="username"
+                   placeholder="Enter your username">
 
-        Password
+            <input type="password"
+                   name="password"
+                   placeholder="Enter your password">
 
-    </p>
+            <button type="submit">
 
-    <input type="password"
-           name="password">
+                Login
 
-    <br><br>
+            </button>
 
-    <button type="submit">
+        </form>
 
-        Login
+        <p class="register-link">
 
-    </button>
+            Don't have an account?
 
-</form>
+            <a href="/register/">
+
+                Register here
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
 
 {% endblock %}
 </body>

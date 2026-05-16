@@ -9,64 +9,59 @@
 
 {% block content %}
 
-<h1>
+<div class="login-container">
 
-    Register
+    <div class="login-box">
 
-</h1>
+        <h1>
 
-<hr>
+            Create Account
 
-{% if error %}
+        </h1>
 
-<p>
+        <p>
 
-    {{ error }}
+            Register your RescueBite account
 
-</p>
+        </p>
 
-{% endif %}
+        {% if error %}
 
-<form method="POST">
+        <p class="error">
 
-    {% csrf_token %}
+            {{ error }}
 
-    <p>
+        </p>
 
-        Username
+        {% endif %}
 
-    </p>
+        <form method="POST">
 
-    <input type="text"
-           name="username">
+            {% csrf_token %}
 
-    <p>
+            <input type="text"
+                   name="username"
+                   placeholder="Username">
 
-        Email
+            <input type="email"
+                   name="email"
+                   placeholder="Email">
 
-    </p>
+            <input type="password"
+                   name="password"
+                   placeholder="Password">
 
-    <input type="email"
-           name="email">
+            <button type="submit">
 
-    <p>
+                Register
 
-        Password
+            </button>
 
-    </p>
+        </form>
 
-    <input type="password"
-           name="password">
+    </div>
 
-    <br><br>
-
-    <button type="submit">
-
-        Register
-
-    </button>
-
-</form>
+</div>
 
 {% endblock %}
 </body>
