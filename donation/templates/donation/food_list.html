@@ -1,54 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1>Food Items</h1>
+<div class="food-page">
 
-<hr>
+    <div class="food-header">
+        <h2>Food Items</h2>
 
-<a href="/donation/create-food/">
+        <a class="add-btn" href="/donation/create-food/">
+            + Add Food
+        </a>
+    </div>
 
-    Add Food
+    <div class="food-grid">
 
-</a>
+        {% for food in foods %}
 
-<hr>
+        <div class="food-card">
 
-{% for food in foods %}
+            <h3 class="food-title">{{ food.food_name }}</h3>
 
-    <h3>{{ food.food_name }}</h3>
+            <p>Restaurant: {{ food.restaurant.username }}</p>
+            <p>Quantity: {{ food.quantity }}</p>
+            <p>Status: {{ food.status }}</p>
 
-    <p>Restaurant: {{ food.restaurant.username }}</p>
+            <div class="actions">
+                <a href="/donation/update-food/{{ food.id }}/">Edit</a>
+                <a href="/donation/delete-food/{{ food.id }}/">Delete</a>
+            </div>
 
-    <p>Quantity: {{ food.quantity }}</p>
+        </div>
 
-    <p>Status: {{ food.status }}</p>
+        {% endfor %}
 
-    <a href="/donation/update-food/{{ food.id }}/">
+    </div>
 
-        Edit
-
-    </a>
-
-    |
-
-    <a href="/donation/delete-food/{{ food.id }}/">
-
-        Delete
-
-    </a>
-
-    <hr>
-
-{% endfor %}
+</div>
 
 {% endblock %}
-</body>
-</html>

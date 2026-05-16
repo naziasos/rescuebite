@@ -1,42 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1>NGO List</h1>
+<div class="ngo-page">
 
-<hr>
+    <div class="ngo-header">
+        <h2>NGO List</h2>
 
-<a href="/ngo/create-ngo/">
+        <a class="add-btn" href="/ngo/create-ngo/">
+            + Add NGO
+        </a>
+    </div>
 
-    Add NGO
+    <div class="ngo-grid">
 
-</a>
+        {% for ngo in ngos %}
 
-<hr>
+        <div class="ngo-card">
 
-{% for ngo in ngos %}
+            <!-- NGO NAME (MAIN FIX) -->
+            <h3>{{ ngo.ngo_name }}</h3>
 
-    <h3>{{ ngo.ngo_name }}</h3>
+            <!-- USER LINKED TO NGO -->
+            <p><b>User:</b> {{ ngo.user.username }}</p>
 
-    <p>User: {{ ngo.user.username }}</p>
+            <div class="actions">
+                <a href="/ngo/update-ngo/{{ ngo.id }}/">Update</a>
+            </div>
 
-    <a href="/ngo/update-ngo/{{ ngo.id }}/">
+        </div>
 
-        Update
+        {% endfor %}
 
-    </a>
+    </div>
 
-    <hr>
-
-{% endfor %}
+</div>
 
 {% endblock %}
-</body>
-</html>

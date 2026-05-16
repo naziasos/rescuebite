@@ -1,44 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1>Volunteer List</h1>
+<div class="volunteer-page">
 
-<hr>
+    <div class="volunteer-header">
+        <h2>Volunteer List</h2>
 
-<a href="/ngo/create-volunteer/">
+        <a class="add-btn" href="/ngo/create-volunteer/">
+            + Add Volunteer
+        </a>
+    </div>
 
-    Add Volunteer
+    <div class="volunteer-grid">
 
-</a>
+        {% for v in volunteers %}
 
-<hr>
+        <div class="volunteer-card">
 
-{% for v in volunteers %}
+            <h3>{{ v.user.username }}</h3>
 
-    <h3>{{ v.user.username }}</h3>
+            <p><b>NGO:</b> {{ v.ngo }}</p>
 
-    <p>NGO: {{ v.ngo.ngo_name }}</p>
+            <p><b>Vehicle:</b> {{ v.vehicle }}</p>
 
-    <p>Vehicle: {{ v.vehicle }}</p>
+            <div class="actions">
+                <a href="/ngo/update-volunteer/{{ v.id }}/">Update</a>
+            </div>
 
-    <a href="/ngo/update-volunteer/{{ v.id }}/">
+        </div>
 
-        Update
+        {% endfor %}
 
-    </a>
+    </div>
 
-    <hr>
-
-{% endfor %}
+</div>
 
 {% endblock %}
-</body>
-</html>

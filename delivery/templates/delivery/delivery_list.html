@@ -1,59 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1>Delivery List</h1>
+<div class="delivery-page">
 
-<hr>
+    <div class="delivery-header">
+        <h2>Delivery List</h2>
 
-<a href="/delivery/create-delivery/">
+        <a class="add-btn" href="/delivery/create-delivery/">
+            + Add Delivery
+        </a>
+    </div>
 
-    Add Delivery
+    <div class="delivery-grid">
 
-</a>
+        {% for delivery in deliveries %}
 
-<hr>
+        <div class="delivery-card">
 
-{% for delivery in deliveries %}
+            <h3>Delivery Info</h3>
 
-    <p>
+            <p><b>Status:</b> {{ delivery.status }}</p>
+            <p><b>Claim:</b> {{ delivery.claim.food.food_name }}</p>
+            <p><b>Volunteer:</b> {{ delivery.volunteer.username }}</p>
 
-        Status:
-        {{ delivery.status }}
+            <div class="actions">
+                <a href="/delivery/update-delivery/{{ delivery.id }}/">
+                    Update
+                </a>
+            </div>
 
-    </p>
+        </div>
 
-    <p>
+        {% endfor %}
 
-        Claim:
-        {{ delivery.claim.food.food_name }}
+    </div>
 
-    </p>
-
-    <p>
-
-        Volunteer:
-        {{ delivery.volunteer.user.username }}
-
-    </p>
-
-    <a href="/delivery/update-delivery/{{ delivery.id }}/">
-
-        Update
-
-    </a>
-
-    <hr>
-
-{% endfor %}
-
+</div>
 {% endblock %}
-</body>
-</html>

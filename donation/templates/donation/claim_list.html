@@ -1,59 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
 
 {% block content %}
 
-<h1>Claims</h1>
+<div class="claim-page">
 
-<hr>
+    <div class="claim-header">
+        <h2>Claims</h2>
 
-<a href="/donation/create-claim/">
+        <a class="add-btn" href="/donation/create-claim/">
+            + Create Claim
+        </a>
+    </div>
 
-    Create Claim
+    <div class="claim-grid">
 
-</a>
+        {% for claim in claims %}
 
-<hr>
+        <div class="claim-card">
 
-{% for claim in claims %}
+            <h3>Claim Details</h3>
 
-    <p>
+            <p><b>Food:</b> {{ claim.food.food_name }}</p>
+            <p><b>NGO:</b> {{ claim.ngo.username }}</p>
+            <p><b>Status:</b> {{ claim.status }}</p>
 
-        Food:
-        {{ claim.food.food_name }}
+            <div class="actions">
+                <a href="/donation/update-claim/{{ claim.id }}/">Update</a>
+            </div>
 
-    </p>
+        </div>
 
-    <p>
+        {% endfor %}
 
-        NGO:
-        {{ claim.ngo.username }}
+    </div>
 
-    </p>
-
-    <p>
-
-        Status:
-        {{ claim.status }}
-
-    </p>
-
-    <a href="/donation/update-claim/{{ claim.id }}/">
-
-        Update
-
-    </a>
-
-    <hr>
-
-{% endfor %}
+</div>
 
 {% endblock %}
-</body>
-</html>
