@@ -9,11 +9,9 @@ body{
 
 .navbar{
 
-    background:#0d6efd;
+    background:#1b4332;
 
-    color:white;
-
-    padding:15px;
+    padding:10px 40px;
 
     display:flex;
 
@@ -24,7 +22,16 @@ body{
 
 .logo{
 
-    margin:0;
+    font-size:24px;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+.logo span{
+
+    color:#95d5b2;
 }
 
 .nav-links a{
@@ -37,7 +44,6 @@ body{
 
     font-weight:bold;
 }
-
 .container{
 
     padding:30px;
@@ -60,7 +66,7 @@ body{
 
     font-size:50px;
 
-    color:#0d6efd;
+    color:black;
 }
 
 .hero p{
@@ -72,7 +78,7 @@ body{
 
 .btn{
 
-    background:#0d6efd;
+    background:#2d6a4f;
 
     color:white;
 
@@ -106,6 +112,401 @@ body{
 }
 
 .card h2{
+    color:#2d6a4f;
+}
+.food-page {
+    padding: 25px;
+}
 
-    color:#0d6efd;
+.food-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.food-header h2 {
+    color: #0b3d2e;
+}
+
+.add-btn {
+    background: #0b3d2e;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background: #145c45;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.food-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.food-title {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #0b3d2e;
+}
+.nav-links a:hover{
+
+    color:#95d5b2;
+}
+
+.btn:hover{
+
+    background:#1b4332;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    transition:0.3s;
+}
+.login-btn{
+
+    border:1px solid white;
+
+    padding:8px 18px;
+
+    border-radius:5px;
+}
+
+.register-btn{
+
+    background:#95d5b2;
+
+    color:#1b4332 !important;
+
+    padding:8px 18px;
+
+    border-radius:5px;
+}
+
+.hero-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:40px;
+}
+
+.hero-text{
+
+    width:50%;
+}
+
+.hero-text h1{
+
+    font-size:55px;
+
+    color:black;
+}
+
+.hero-text p{
+
+    font-size:20px;
+
+    margin-bottom:30px;
+
+    color:#555;
+}
+
+.hero-image img{
+
+    width:500px;
+}
+
+/* ================= CLAIM PAGE ================= */
+
+.claim-page {
+    padding: 25px;
+}
+
+.claim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.claim-header h2 {
+    color: #0b3d2e;
+}
+
+.claim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.claim-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.claim-card:hover {
+    transform: translateY(-5px);
+}
+
+.claim-card p {
+    margin: 6px 0;
+}
+
+.claim-card b {
+    color: #0b3d2e;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #0b3d2e;
+    margin-right: 10px;
+}
+
+/* ================= DELIVERY PAGE ================= */
+
+.delivery-page {
+    padding: 25px;
+}
+
+.delivery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.delivery-header h2 {
+    color: #0b3d2e;
+}
+
+.delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.delivery-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.delivery-card:hover {
+    transform: translateY(-5px);
+}
+
+.delivery-card p {
+    margin: 6px 0;
+}
+
+.delivery-card b {
+    color: #0b3d2e;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #0b3d2e;
+}
+
+/* ================= NGO PAGE ================= */
+
+.ngo-page {
+    padding: 25px;
+}
+
+.ngo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ngo-header h2 {
+    color: #0b3d2e;
+}
+
+.ngo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.ngo-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.ngo-card:hover {
+    transform: translateY(-5px);
+}
+
+.ngo-name {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+.ngo-card p {
+    margin: 6px 0;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #0b3d2e;
+}
+
+/* ================= VOLUNTEER PAGE ================= */
+
+.volunteer-page {
+    padding: 25px;
+}
+
+.volunteer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.volunteer-header h2 {
+    color: #0b3d2e;
+}
+
+.volunteer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.volunteer-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.volunteer-card:hover {
+    transform: translateY(-5px);
+}
+
+.volunteer-card h3 {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+.volunteer-card p {
+    margin: 6px 0;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #0b3d2e;
+}
+
+/* ================= NOTIFICATION PAGE ================= */
+
+.notification-page {
+    padding: 25px;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.notification-header h2 {
+    color: #0b3d2e;
+}
+
+.notification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.notification-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border-left: 5px solid #0b3d2e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.notification-card:hover {
+    transform: translateY(-5px);
+}
+
+.notification-card h3 {
+    color: #0b3d2e;
+    margin-bottom: 10px;
+}
+
+.notification-card p {
+    margin: 6px 0;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #0b3d2e;
 }
