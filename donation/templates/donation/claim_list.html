@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="claim-page">
 
     <div class="claim-header">
-        <h2>Claims</h2>
 
-        <a class="add-btn" href="/donation/create-claim/">
-            + Create Claim
-        </a>
+        <h2>
+
+            Food Claims
+
+        </h2>
+
     </div>
 
     <div class="claim-grid">
@@ -18,17 +22,74 @@
 
         <div class="claim-card">
 
-            <h3>Claim Details</h3>
+            <!-- IMAGE SECTION -->
+            <div class="claim-img">
 
-            <p><b>Food:</b> {{ claim.food.food_name }}</p>
-            <p><b>NGO:</b> {{ claim.ngo.username }}</p>
-            <p><b>Status:</b> {{ claim.status }}</p>
+                {% if claim.food.food_name == 'Rice' %}
 
-            <div class="actions">
-                <a href="/donation/update-claim/{{ claim.id }}/">Update</a>
+                <img src="{% static 'images/rice.jpg' %}"
+                     alt="Food">
+
+                {% else %}
+
+                <img src="{% static 'images/foodpic1.jpg' %}"
+                     alt="Food">
+
+                {% endif %}
+
+            </div>
+
+            <!-- TEXT SECTION -->
+            <div class="claim-content">
+
+                <p>
+
+                    <b>Food:</b>
+                    {{ claim.food.food_name }}
+
+                </p>
+
+                <p>
+
+                    <b>NGO:</b>
+                    {{ claim.ngo.username }}
+
+                </p>
+
+                <p>
+
+                    <b>Status:</b>
+                    {{ claim.status }}
+
+                </p>
+
+                <div class="actions">
+
+                    <a href="/donation/update-claim/{{ claim.id }}/">
+
+                        Update
+
+                    </a>
+
+                    <a href="/donation/delete-claim/{{ claim.id }}/">
+
+                        Delete
+
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
+
+        {% empty %}
+
+        <p>
+
+            No claims available.
+
+        </p>
 
         {% endfor %}
 

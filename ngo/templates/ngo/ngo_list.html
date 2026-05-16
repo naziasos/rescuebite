@@ -1,36 +1,68 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <div class="ngo-page">
 
+    <!-- ================= NGO HEADER ================= -->
     <div class="ngo-header">
-        <h2>NGO List</h2>
 
-        <a class="add-btn" href="/ngo/create-ngo/">
-            + Add NGO
-        </a>
+        <h2>
+
+            NGO List
+
+        </h2>
+
     </div>
 
+    <!-- ================= NGO DATABASE LIST ================= -->
     <div class="ngo-grid">
 
         {% for ngo in ngos %}
 
         <div class="ngo-card">
 
-            <!-- NGO NAME (MAIN FIX) -->
-            <h3>{{ ngo.ngo_name }}</h3>
+            <h3 class="ngo-name">
 
-            <!-- USER LINKED TO NGO -->
-            <p><b>User:</b> {{ ngo.user.username }}</p>
+                {{ ngo.ngo_name }}
 
-            <div class="actions">
-                <a href="/ngo/update-ngo/{{ ngo.id }}/">Update</a>
-            </div>
+            </h3>
+
+            <p>
+
+                Username: {{ ngo.user.username }}
+
+            </p>
 
         </div>
 
+        {% empty %}
+
+        <p>
+
+            No NGOs available.
+
+        </p>
+
         {% endfor %}
+
+    </div>
+
+    <!-- ================= IMAGE GALLERY ================= -->
+    <h2 style="margin-top:40px; text-align:center;">
+
+        NGO Gallery
+
+    </h2>
+
+    <div class="ngo-gallery">
+
+        <img src="{% static 'images/valo.jpg' %}" alt="NGO 1">
+
+        <img src="{% static 'images/ash.webp' %}" alt="NGO 2">
+
+        <img src="{% static 'images/ngo.jpg' %}" alt="NGO 3">
 
     </div>
 

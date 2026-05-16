@@ -1,39 +1,82 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="food-page">
+<h1 class="food-heading">
 
-    <div class="food-header">
-        <h2>Food Items</h2>
+    Available Food Items
 
-        <a class="add-btn" href="/donation/create-food/">
-            + Add Food
-        </a>
-    </div>
+</h1>
 
-    <div class="food-grid">
+<div class="food-container">
 
-        {% for food in foods %}
+    {% for food in foods %}
 
-        <div class="food-card">
+    <div class="food-card">
 
-            <h3 class="food-title">{{ food.food_name }}</h3>
+        {% if food.food_name == 'Rice' %}
 
-            <p>Restaurant: {{ food.restaurant.username }}</p>
-            <p>Quantity: {{ food.quantity }}</p>
-            <p>Status: {{ food.status }}</p>
+        <img src="{% static 'images/rice.jpg' %}"
+             alt="Rice">
 
-            <div class="actions">
-                <a href="/donation/update-food/{{ food.id }}/">Edit</a>
-                <a href="/donation/delete-food/{{ food.id }}/">Delete</a>
-            </div>
+        {% else %}
+
+        <img src="{% static 'images/foodpic1.jpg' %}"
+             alt="Food">
+
+        {% endif %}
+
+        <div class="food-content">
+
+            <h2>
+
+                {{ food.food_name }}
+
+            </h2>
+
+            <p>
+
+                Quantity:
+                {{ food.quantity }}
+
+            </p>
+
+            <p>
+
+                Restaurant:
+                {{ food.restaurant.username }}
+
+            </p>
+
+            <span class="status">
+
+                {{ food.status }}
+
+            </span>
+
+            <br><br>
+
+            <a href="/donation/update-food/{{ food.id }}/"
+               class="edit-btn">
+
+                Edit
+
+            </a>
+
+            <a href="/donation/delete-food/{{ food.id }}/"
+               class="delete-btn">
+
+                Delete
+
+            </a>
 
         </div>
 
-        {% endfor %}
-
     </div>
+
+    {% endfor %}
 
 </div>
 
