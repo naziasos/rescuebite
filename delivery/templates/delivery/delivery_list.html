@@ -10,17 +10,46 @@
 {% block content %}
 
 <h1>Delivery List</h1>
+
 <hr>
+
+<a href="/delivery/create-delivery/">
+
+    Add Delivery
+
+</a>
+
+<hr>
+
 {% for delivery in deliveries %}
+
     <p>
-        Status: {{ delivery.status }}
+
+        Status:
+        {{ delivery.status }}
+
     </p>
+
     <p>
-        Claim ID: {{ delivery.claim.id }}
+
+        Claim:
+        {{ delivery.claim.food.food_name }}
+
     </p>
+
     <p>
-        Volunteer: {{ delivery.volunteer.user.username }}
+
+        Volunteer:
+        {{ delivery.volunteer.user.username }}
+
     </p>
+
+    <a href="/delivery/update-delivery/{{ delivery.id }}/">
+
+        Update
+
+    </a>
+
     <hr>
 
 {% endfor %}

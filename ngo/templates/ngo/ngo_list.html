@@ -13,11 +13,25 @@
 
 <hr>
 
+<a href="/ngo/create-ngo/">
+
+    Add NGO
+
+</a>
+
+<hr>
+
 {% for ngo in ngos %}
 
     <h3>{{ ngo.ngo_name }}</h3>
 
     <p>User: {{ ngo.user.username }}</p>
+
+    <a href="/ngo/update-ngo/{{ ngo.id }}/">
+
+        Update
+
+    </a>
 
     <hr>
 

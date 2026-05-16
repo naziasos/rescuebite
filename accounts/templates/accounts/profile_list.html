@@ -8,29 +8,66 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-    Profile List
-</h1>
+
+<h1>Profile List</h1>
+
 <hr>
+
+<a href="/create-profile/">
+
+    Add Profile
+
+</a>
+
+<hr>
+
 {% for profile in profiles %}
+
     <h3>
+
         {{ profile.user.username }}
+
     </h3>
+
     <p>
+
         User Type:
         {{ profile.user_type }}
+
     </p>
+
     <p>
+
         Phone:
         {{ profile.phone }}
+
     </p>
+
     <p>
+
         Address:
         {{ profile.address }}
+
     </p>
+
+    <a href="/update-profile/{{ profile.id }}/">
+
+        Edit
+
+    </a>
+
+    |
+
+    <a href="/delete-profile/{{ profile.id }}/">
+
+        Delete
+
+    </a>
+
     <hr>
 
 {% endfor %}
+
 {% endblock %}
 </body>
 </html>

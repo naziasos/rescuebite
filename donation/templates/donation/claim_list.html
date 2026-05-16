@@ -13,13 +13,42 @@
 
 <hr>
 
+<a href="/donation/create-claim/">
+
+    Create Claim
+
+</a>
+
+<hr>
+
 {% for claim in claims %}
 
-    <p>Food: {{ claim.food.food_name }}</p>
+    <p>
 
-    <p>NGO: {{ claim.ngo.username }}</p>
+        Food:
+        {{ claim.food.food_name }}
 
-    <p>Status: {{ claim.status }}</p>
+    </p>
+
+    <p>
+
+        NGO:
+        {{ claim.ngo.username }}
+
+    </p>
+
+    <p>
+
+        Status:
+        {{ claim.status }}
+
+    </p>
+
+    <a href="/donation/update-claim/{{ claim.id }}/">
+
+        Update
+
+    </a>
 
     <hr>
 

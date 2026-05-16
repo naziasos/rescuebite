@@ -13,6 +13,14 @@
 
 <hr>
 
+<a href="/donation/create-food/">
+
+    Add Food
+
+</a>
+
+<hr>
+
 {% for food in foods %}
 
     <h3>{{ food.food_name }}</h3>
@@ -22,6 +30,20 @@
     <p>Quantity: {{ food.quantity }}</p>
 
     <p>Status: {{ food.status }}</p>
+
+    <a href="/donation/update-food/{{ food.id }}/">
+
+        Edit
+
+    </a>
+
+    |
+
+    <a href="/donation/delete-food/{{ food.id }}/">
+
+        Delete
+
+    </a>
 
     <hr>
 

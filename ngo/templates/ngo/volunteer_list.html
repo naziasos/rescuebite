@@ -13,6 +13,14 @@
 
 <hr>
 
+<a href="/ngo/create-volunteer/">
+
+    Add Volunteer
+
+</a>
+
+<hr>
+
 {% for v in volunteers %}
 
     <h3>{{ v.user.username }}</h3>
@@ -20,6 +28,12 @@
     <p>NGO: {{ v.ngo.ngo_name }}</p>
 
     <p>Vehicle: {{ v.vehicle }}</p>
+
+    <a href="/ngo/update-volunteer/{{ v.id }}/">
+
+        Update
+
+    </a>
 
     <hr>
 

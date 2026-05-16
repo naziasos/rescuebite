@@ -8,26 +8,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-    Notifications
-</h1>
+
+<h1>Notifications</h1>
+
 <hr>
-{% for notification in notifications %}
-    <p>
-        User:
-        {{ notification.user.username }}
-    </p>
-    <p>
-        Message:
-        {{ notification.message }}
-    </p>
-    <p>
-        Read:
-        {{ notification.is_read }}
-    </p>
+
+<a href="/create-notification/">
+
+    Add Notification
+
+</a>
+
+<hr>
+
+{% for n in notifications %}
+
+    <p>{{ n.message }}</p>
+
+    <p>User: {{ n.user.username }}</p>
+
+    <p>Read: {{ n.is_read }}</p>
+
+    <a href="/update-notification/{{ n.id }}/">
+
+        Update
+
+    </a>
+
     <hr>
 
 {% endfor %}
+
 {% endblock %}
 </body>
 </html>
