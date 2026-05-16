@@ -7,27 +7,40 @@
 <body>
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="hero">
+<div class="hero-section">
 
-    <h1>
+    <div class="hero-text">
 
-        Save Food, Save Lives
+        <h1>
 
-    </h1>
+            Save Food, Save Lives
 
-    <p>
+        </h1>
 
-        Donate extra food and help people in need.
+        <p>
 
-    </p>
+            Donate extra food and help people in need.
 
-    <a href="/donation/foods/" class="btn">
+        </p>
 
-        View Foods
+        <a href="/donation/foods/" class="btn">
 
-    </a>
+            Donate Foods
+
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="{% static 'images/food.png' %}"
+             alt="Food Donation">
+
+    </div>
 
 </div>
 

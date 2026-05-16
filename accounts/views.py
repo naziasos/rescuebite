@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect
 
+from django.contrib.auth.models import User
+
+from django.contrib.auth import authenticate,login,logout
+
 from .models import Profile, Notification
 
 from .forms import ProfileForm, NotificationForm
@@ -120,3 +124,75 @@ def update_notification(request,id):
     return render(request,
                   'accounts/notification_form.html',
                   {'form': form})
+
+def login_page(request):
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+
+        password = request.POST.get('password')
+
+        user = authenticate(
+
+            request,
+            username=username,
+            password=password
+
+        )
+
+        if user is not None:
+
+            login(request,user)
+
+            return redirect('/dashboard/')
+
+        else:
+
+            return render(request,
+                          'accounts/login.html',
+                          {'error':'Invalid Username or Password'})
+
+    return render(request,
+                  'accounts/login.html')
+
+def register_page(request):
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+
+        password = request.POST.get('password')
+
+        email = request.POST.get('email')
+
+        if User.objects.filter(username=username).exists():
+
+            return render(request,
+                          'accounts/register.html',
+                          {'error':'Username already exists'})
+
+        user = User.objects.create_user(
+
+            username=username,
+            password=password,
+            email=email
+
+        )
+
+        user.save()
+
+        return redirect('/login/')
+
+    return render(request,
+                  'accounts/register.html')
+
+def dashboard(request):
+
+    return render(request,
+                  'accounts/dashboard.html')
+def logout_page(request):
+
+    logout(request)
+
+    return redirect('/login/')
