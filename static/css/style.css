@@ -114,60 +114,131 @@ body{
 .card h2{
     color:#2d6a4f;
 }
-.food-page {
-    padding: 25px;
+/* ================= FOOD PAGE ================= */
+
+.food-heading{
+
+    color:#1b4332;
+
+    margin-bottom:30px;
+
+    font-size:40px;
+
+    text-align:center;
 }
 
-.food-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.food-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
 }
 
-.food-header h2 {
-    color: #0b3d2e;
+.food-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0px 4px 12px rgba(0,0,0,0.1);
+
+    transition:0.3s;
 }
 
-.add-btn {
-    background: #0b3d2e;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
+.food-card:hover{
+
+    transform:translateY(-8px);
 }
 
-.add-btn:hover {
-    background: #145c45;
+.food-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
 }
 
-.food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.food-content{
+
+    padding:20px;
 }
 
-.food-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border-left: 5px solid #0b3d2e;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.food-content h2{
+
+    color:#2d6a4f;
+
+    margin-bottom:12px;
 }
 
-.food-title {
-    color: #0b3d2e;
-    margin-bottom: 10px;
+.food-content p{
+
+    color:#555;
+
+    margin-bottom:10px;
+
+    font-size:15px;
 }
 
-.actions {
-    margin-top: 10px;
+.status{
+
+    background:#d8f3dc;
+
+    color:#1b4332;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:bold;
 }
 
-.actions a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #0b3d2e;
+.edit-btn{
+
+    background:#2d6a4f;
+
+    color:white;
+
+    padding:8px 16px;
+
+    text-decoration:none;
+
+    border-radius:6px;
+
+    margin-right:10px;
+
+    transition:0.3s;
+}
+
+.delete-btn{
+
+    background:#b00020;
+
+    color:white;
+
+    padding:8px 16px;
+
+    text-decoration:none;
+
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+.edit-btn:hover{
+
+    background:#1b4332;
+}
+
+.delete-btn:hover{
+
+    background:#7f0000;
 }
 .nav-links a:hover{
 
@@ -242,58 +313,130 @@ body{
     width:500px;
 }
 
-/* ================= CLAIM PAGE ================= */
+/* ================= CLAIM PAGE FINAL FIX ================= */
 
-.claim-page {
-    padding: 25px;
+.claim-page{
+
+    padding:25px;
+
+    background:#f4f4f4;
 }
 
-.claim-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.claim-header h2{
+
+    color:#1b4332;
+
+    font-size:32px;
+
+    margin-bottom:20px;
 }
 
-.claim-header h2 {
-    color: #0b3d2e;
+/* SINGLE COLUMN LAYOUT */
+
+.claim-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:20px;
 }
 
-.claim-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+/* CARD */
+
+.claim-card{
+
+    display:flex;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0px 4px 12px rgba(0,0,0,0.08);
+
+    transition:0.3s;
 }
 
-.claim-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border-left: 5px solid #0b3d2e;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: 0.3s;
+.claim-card:hover{
+
+    transform:translateY(-5px);
 }
 
-.claim-card:hover {
-    transform: translateY(-5px);
+/* IMAGE SMALL */
+
+.claim-img img{
+
+    width:140px;
+
+    height:120px;
+
+    object-fit:cover;
 }
 
-.claim-card p {
-    margin: 6px 0;
+/* CONTENT */
+
+.claim-content{
+
+    padding:15px;
+
+    flex:1;
 }
 
-.claim-card b {
-    color: #0b3d2e;
+.claim-content p{
+
+    margin:6px 0;
+
+    color:#444;
+
+    font-size:14px;
 }
 
-.actions {
-    margin-top: 10px;
+.claim-content b{
+
+    color:#1b4332;
 }
 
-.actions a {
-    text-decoration: none;
-    color: #0b3d2e;
-    margin-right: 10px;
+/* BUTTONS */
+
+.actions{
+
+    margin-top:10px;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.actions a{
+
+    text-decoration:none;
+
+    padding:6px 12px;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    color:white;
+
+    transition:0.3s;
+}
+
+.actions a:first-child{
+
+    background:#2d6a4f;
+}
+
+.actions a:last-child{
+
+    background:#b00020;
+}
+
+.actions a:hover{
+
+    opacity:0.85;
 }
 
 /* ================= DELIVERY PAGE ================= */
@@ -349,58 +492,109 @@ body{
     color: #0b3d2e;
 }
 
-/* ================= NGO PAGE ================= */
+/* ================= NGO PAGE FINAL ================= */
 
-.ngo-page {
-    padding: 25px;
+.ngo-page{
+
+    padding:25px;
+
+    background:#f4f4f4;
 }
 
-.ngo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.ngo-header h2{
+
+    color:#1b4332;
+
+    font-size:32px;
+
+    margin-bottom:20px;
 }
 
-.ngo-header h2 {
-    color: #0b3d2e;
+/* SINGLE COLUMN */
+
+.ngo-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:18px;
 }
 
-.ngo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+/* CARD */
+
+.ngo-card{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    box-shadow:0px 4px 12px rgba(0,0,0,0.08);
+
+    border-left:5px solid #2d6a4f;
+
+    transition:0.3s;
 }
 
-.ngo-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border-left: 5px solid #0b3d2e;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: 0.3s;
+.ngo-card:hover{
+
+    transform:translateY(-5px);
 }
 
-.ngo-card:hover {
-    transform: translateY(-5px);
+/* TEXT */
+
+.ngo-name{
+
+    color:#1b4332;
+
+    margin-bottom:8px;
 }
 
-.ngo-name {
-    color: #0b3d2e;
-    margin-bottom: 10px;
+.ngo-card p{
+
+    margin:6px 0;
+
+    color:#444;
 }
 
-.ngo-card p {
-    margin: 6px 0;
+/* BUTTONS */
+
+.actions{
+
+    margin-top:10px;
+
+    display:flex;
+
+    gap:10px;
 }
 
-.actions {
-    margin-top: 10px;
+.actions a{
+
+    text-decoration:none;
+
+    padding:6px 12px;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    color:white;
+
+    background:#2d6a4f;
+
+    transition:0.3s;
 }
 
-.actions a {
-    text-decoration: none;
-    color: #0b3d2e;
+.actions a:last-child{
+
+    background:#b00020;
+}
+
+.actions a:hover{
+
+    opacity:0.85;
 }
 
 /* ================= VOLUNTEER PAGE ================= */
@@ -509,4 +703,34 @@ body{
 .actions a {
     text-decoration: none;
     color: #0b3d2e;
+}
+.ngo-gallery{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    margin-top:25px;
+}
+
+.ngo-gallery img{
+
+    width:220px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    box-shadow:0px 4px 10px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+}
+
+.ngo-gallery img:hover{
+
+    transform:scale(1.05);
 }
