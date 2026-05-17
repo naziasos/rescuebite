@@ -4,79 +4,96 @@
 
 {% block content %}
 
-<h1 class="food-heading">
+<div class="food-page">
 
-    Available Food Items
+    <div class="food-header">
 
-</h1>
+        <h1 class="food-heading">
 
-<div class="food-container">
+            Available Food Items
 
-    {% for food in foods %}
+        </h1>
 
-    <div class="food-card">
+        <a href="{% url 'create_food' %}"
+           class="add-btn">
 
-        {% if food.food_name == 'Rice' %}
+            + Add Food
 
-        <img src="{% static 'images/rice.jpg' %}"
-             alt="Rice">
-
-        {% else %}
-
-        <img src="{% static 'images/foodpic1.jpg' %}"
-             alt="Food">
-
-        {% endif %}
-
-        <div class="food-content">
-
-            <h2>
-
-                {{ food.food_name }}
-
-            </h2>
-
-            <p>
-
-                Quantity:
-                {{ food.quantity }}
-
-            </p>
-
-            <p>
-
-                Restaurant:
-                {{ food.restaurant.username }}
-
-            </p>
-
-            <span class="status">
-
-                {{ food.status }}
-
-            </span>
-
-            <br><br>
-
-            <a href="/donation/update-food/{{ food.id }}/"
-               class="edit-btn">
-
-                Edit
-
-            </a>
-
-            <a href="/donation/delete-food/{{ food.id }}/"
-               class="delete-btn">
-
-                Delete
-
-            </a>
-
-        </div>
+        </a>
 
     </div>
 
-    {% endfor %}
+    <div class="food-grid">
+
+        {% for food in foods %}
+
+        <div class="food-card">
+
+            {% if food.food_name == 'Rice' %}
+
+            <img src="{% static 'images/rice.jpg' %}"
+                 alt="Rice">
+
+            {% else %}
+
+            <img src="{% static 'images/foodpic1.jpg' %}"
+                 alt="Food">
+
+            {% endif %}
+
+            <div class="food-content">
+
+                <h2>
+
+                    {{ food.food_name }}
+
+                </h2>
+
+                <p>
+
+                    Quantity:
+                    {{ food.quantity }}
+
+                </p>
+
+                <p>
+
+                    Restaurant:
+                    {{ food.restaurant.username }}
+
+                </p>
+
+                <span class="status">
+
+                    {{ food.status }}
+
+                </span>
+
+                <div class="actions">
+
+                    <a href="{% url 'update_food' food.id %}"
+                       class="edit-btn">
+
+                        Edit
+
+                    </a>
+
+                    <a href="{% url 'delete_food' food.id %}"
+                       class="delete-btn">
+
+                        Delete
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
 
 </div>
 

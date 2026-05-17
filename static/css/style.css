@@ -141,10 +141,13 @@ body{
     background: #145c45;
 }
 
-.food-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.food-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
 }
 
 .food-card {
@@ -723,4 +726,28 @@ body{
     margin:0;
 
     padding:0;
+}
+.food-card{
+
+    width:31%;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+    box-sizing:border-box;
+}
+.food-card img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    display:block;
 }
