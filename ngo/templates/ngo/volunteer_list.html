@@ -1,34 +1,117 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <div class="volunteer-page">
 
-    <div class="volunteer-header">
-        <h2>Volunteer List</h2>
+    <!-- ================= HEADER ================= -->
 
-        <a class="add-btn" href="/ngo/create-volunteer/">
+    <div class="volunteer-header">
+
+        <h2>
+
+            Volunteer List
+
+        </h2>
+
+        <a href="{% url 'create_volunteer' %}" class="add-btn">
+
             + Add Volunteer
+
         </a>
+
     </div>
+
+    <!-- ================= GRID ================= -->
 
     <div class="volunteer-grid">
 
-        {% for v in volunteers %}
+        {% for volunteer in volunteers %}
 
         <div class="volunteer-card">
 
-            <h3>{{ v.user.username }}</h3>
+            <!-- PROFILE ROW -->
 
-            <p><b>NGO:</b> {{ v.ngo }}</p>
+            <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px;">
 
-            <p><b>Vehicle:</b> {{ v.vehicle }}</p>
+                <!-- AVATAR -->
+
+                <div class="avatar">
+
+                    {% if volunteer.profile_pic %}
+
+                        <img src="{{ volunteer.profile_pic.url }}" alt="profile">
+
+                    {% else %}
+
+                        {{ volunteer.user.username|first|upper }}
+
+                    {% endif %}
+
+                </div>
+
+                <!-- NAME + STATUS -->
+
+                <div>
+
+                    <h3>
+
+                        {{ volunteer.user.username }}
+
+                    </h3>
+
+                    <span class="status">
+
+                        ● ACTIVE
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- INFO -->
+
+            <p>
+
+                <b>NGO:</b> {{ volunteer.ngo.ngo_name }}
+
+            </p>
+
+            <p>
+
+                <b>Vehicle:</b> {{ volunteer.vehicle }}
+
+            </p>
+
+            <p>
+
+                <b>Phone:</b> {{ volunteer.phone }}
+
+            </p>
+
+            <!-- UPDATE BUTTON -->
 
             <div class="actions">
-                <a href="/ngo/update-volunteer/{{ v.id }}/">Update</a>
+
+                <a href="{% url 'update_volunteer' volunteer.id %}">
+
+                    Update
+
+                </a>
+
             </div>
 
         </div>
+
+        {% empty %}
+
+        <p style="text-align:center; width:100%;">
+
+            No volunteers available.
+
+        </p>
 
         {% endfor %}
 

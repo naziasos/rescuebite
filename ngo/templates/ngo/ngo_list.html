@@ -6,6 +6,7 @@
 <div class="ngo-page">
 
     <!-- ================= NGO HEADER ================= -->
+
     <div class="ngo-header">
 
         <h2>
@@ -14,9 +15,16 @@
 
         </h2>
 
+        <a href="{% url 'create_ngo' %}" class="add-btn">
+
+            + Add NGO
+
+        </a>
+
     </div>
 
     <!-- ================= NGO DATABASE LIST ================= -->
+
     <div class="ngo-grid">
 
         {% for ngo in ngos %}
@@ -35,11 +43,21 @@
 
             </p>
 
+            <div class="actions">
+
+                <a href="{% url 'update_ngo' ngo.id %}">
+
+                    Update
+
+                </a>
+
+            </div>
+
         </div>
 
         {% empty %}
 
-        <p>
+        <p class="empty-text">
 
             No NGOs available.
 
@@ -50,7 +68,8 @@
     </div>
 
     <!-- ================= IMAGE GALLERY ================= -->
-    <h2 style="margin-top:40px; text-align:center;">
+
+    <h2 class="gallery-title">
 
         NGO Gallery
 

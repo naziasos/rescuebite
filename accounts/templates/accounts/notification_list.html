@@ -7,7 +7,7 @@
     <div class="notification-header">
         <h2>Notifications</h2>
 
-        <a class="add-btn" href="/notifications/create/">
+        <a class="add-btn" href="/create-notification/">
             + Add Notification
         </a>
     </div>
@@ -23,16 +23,15 @@
             <p><b>User:</b> {{ n.user.username }}</p>
 
             <p>
-                <b>Read:</b>
                 {% if n.is_read %}
-                    True
+                    <span class="badge read">Read</span>
                 {% else %}
-                    False
+                    <span class="badge unread">Unread</span>
                 {% endif %}
             </p>
 
             <div class="actions">
-                <a href="/notifications/update/{{ n.id }}/">Update</a>
+                <a href="/update-notification/{{ n.id }}/">Update</a>
             </div>
 
         </div>

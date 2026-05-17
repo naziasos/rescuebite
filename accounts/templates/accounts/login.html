@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -13,58 +7,25 @@
 
     <div class="login-box">
 
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-        <p>
-
-            Login to your account
-
-        </p>
+        <h1>Welcome Back</h1>
+        <p>Login to your account</p>
 
         {% if error %}
-
-        <p class="error">
-
-            {{ error }}
-
-        </p>
-
+        <p class="error">{{ error }}</p>
         {% endif %}
 
         <form method="POST">
-
             {% csrf_token %}
 
-            <input type="text"
-                   name="username"
-                   placeholder="Enter your username">
+            <input type="text" name="username" placeholder="Enter username">
+            <input type="password" name="password" placeholder="Enter password">
 
-            <input type="password"
-                   name="password"
-                   placeholder="Enter your password">
-
-            <button type="submit">
-
-                Login
-
-            </button>
-
+            <button type="submit">Login</button>
         </form>
 
         <p class="register-link">
-
             Don't have an account?
-
-            <a href="/register/">
-
-                Register here
-
-            </a>
-
+            <a href="/register/">Register here</a>
         </p>
 
     </div>
@@ -72,5 +33,3 @@
 </div>
 
 {% endblock %}
-</body>
-</html>

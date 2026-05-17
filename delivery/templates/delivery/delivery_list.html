@@ -5,11 +5,13 @@
 <div class="delivery-page">
 
     <div class="delivery-header">
+
         <h2>Delivery List</h2>
 
         <a class="add-btn" href="/delivery/create-delivery/">
             + Add Delivery
         </a>
+
     </div>
 
     <div class="delivery-grid">
@@ -18,17 +20,53 @@
 
         <div class="delivery-card">
 
-            <h3>Delivery Info</h3>
+            <div class="card-top">
 
-            <p><b>Status:</b> {{ delivery.status }}</p>
-            <p><b>Claim:</b> {{ delivery.claim.food.food_name }}</p>
-            <p><b>Volunteer:</b> {{ delivery.volunteer.username }}</p>
+                <h3>
+                    DELIVERY #{{ delivery.id }}
+                </h3>
 
-            <div class="actions">
-                <a href="/delivery/update-delivery/{{ delivery.id }}/">
+                <span class="location-icon">
+                    📍
+                </span>
+
+            </div>
+
+            <div class="avatar">
+                {{ delivery.volunteer.username|slice:":2"|upper }}
+            </div>
+
+            <div class="status-badge">
+                {{ delivery.status }}
+            </div>
+
+            <p>
+                <b>Claim:</b>
+                {{ delivery.claim.food.food_name }}
+            </p>
+
+            <p>
+                <b>Volunteer:</b>
+                {{ delivery.volunteer.username }}
+            </p>
+
+            <div class="btn-group">
+
+                <a href="/delivery/update-delivery/{{ delivery.id }}/"
+                   class="update-btn">
                     Update
                 </a>
+
+                <a href="#"
+                   class="track-btn">
+                    Track Delivery
+                </a>
+
             </div>
+
+            <button class="task-btn">
+                View Tasks
+            </button>
 
         </div>
 
@@ -37,4 +75,5 @@
     </div>
 
 </div>
+
 {% endblock %}
