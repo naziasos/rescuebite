@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 
 from .forms import FoodItemForm, ClaimForm
@@ -33,11 +34,12 @@ def donation_history_list(request):
                   'donation/donation_history_list.html',
                   {'history': history})
 
+@login_required
 def create_food(request):
 
     if request.method == 'POST':
 
-        form = FoodItemForm(request.POST)
+        form = FoodItemForm(request.POST, request.FILES)  # 🔥 FIXED
 
         if form.is_valid():
 
@@ -52,7 +54,7 @@ def create_food(request):
     return render(request,
                   'donation/forms.html',
                   {'form': form})
-
+@login_required
 def update_food(request,id):
 
     food = FoodItem.objects.get(pk=id)
@@ -76,6 +78,7 @@ def update_food(request,id):
                   'donation/forms.html',
                   {'form': form})
 
+@login_required
 def delete_food(request,id):
 
     food = FoodItem.objects.get(pk=id)

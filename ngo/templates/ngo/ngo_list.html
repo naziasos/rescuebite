@@ -10,16 +10,15 @@
     <div class="ngo-header">
 
         <h2>
-
             NGO List
-
         </h2>
 
+        <!-- ✅ ONLY LOGGED IN USER CAN ADD -->
+        {% if user.is_authenticated %}
         <a href="{% url 'create_ngo' %}" class="add-btn">
-
             + Add NGO
-
         </a>
+        {% endif %}
 
     </div>
 
@@ -32,35 +31,30 @@
         <div class="ngo-card">
 
             <h3 class="ngo-name">
-
                 {{ ngo.ngo_name }}
-
             </h3>
 
             <p>
-
                 Username: {{ ngo.user.username }}
-
             </p>
 
+            <!-- ✅ UPDATE PROTECTED -->
+            {% if user.is_authenticated %}
             <div class="actions">
 
                 <a href="{% url 'update_ngo' ngo.id %}">
-
                     Update
-
                 </a>
 
             </div>
+            {% endif %}
 
         </div>
 
         {% empty %}
 
         <p class="empty-text">
-
             No NGOs available.
-
         </p>
 
         {% endfor %}
@@ -70,17 +64,13 @@
     <!-- ================= IMAGE GALLERY ================= -->
 
     <h2 class="gallery-title">
-
         NGO Gallery
-
     </h2>
 
     <div class="ngo-gallery">
 
         <img src="{% static 'images/valo.jpg' %}" alt="NGO 1">
-
         <img src="{% static 'images/ash.webp' %}" alt="NGO 2">
-
         <img src="{% static 'images/ngo.jpg' %}" alt="NGO 3">
 
     </div>

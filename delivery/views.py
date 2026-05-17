@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 
 from .models import Delivery
@@ -9,7 +10,7 @@ def delivery_list(request):
     return render(request,
                   'delivery/delivery_list.html',
                   {'deliveries': deliveries})
-
+@login_required
 def create_delivery(request):
 
     if request.method == 'POST':
@@ -29,6 +30,8 @@ def create_delivery(request):
     return render(request,
                   'delivery/forms.html',
                   {'form': form})
+
+@login_required
 
 def update_delivery(request,id):
 

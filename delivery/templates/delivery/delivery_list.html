@@ -8,9 +8,11 @@
 
         <h2>Delivery List</h2>
 
+        {% if user.is_authenticated %}
         <a class="add-btn" href="/delivery/create-delivery/">
             + Add Delivery
         </a>
+        {% endif %}
 
     </div>
 
@@ -50,6 +52,7 @@
                 {{ delivery.volunteer.username }}
             </p>
 
+            {% if user.is_authenticated %}
             <div class="btn-group">
 
                 <a href="/delivery/update-delivery/{{ delivery.id }}/"
@@ -57,18 +60,16 @@
                     Update
                 </a>
 
-                <a href="#"
-                   class="track-btn">
-                    Track Delivery
-                </a>
-
             </div>
-
-            <button class="task-btn">
-                View Tasks
-            </button>
+            {% endif %}
 
         </div>
+
+        {% empty %}
+
+        <p style="text-align:center;">
+            No deliveries available.
+        </p>
 
         {% endfor %}
 

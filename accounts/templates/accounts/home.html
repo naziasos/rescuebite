@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>accounts_home</title>
-</head>
-<body>
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
@@ -15,28 +7,19 @@
 
     <div class="hero-text">
 
-        <h1>
+        <h1>Save Food, Save Lives</h1>
 
-            Save Food, Save Lives
+        <p>Donate extra food and help people in need.</p>
 
-        </h1>
-
-        <p>
-
-            Donate extra food and help people in need.
-
-        </p>
         <a href="/donation/foods/" class="btn">
             Donate Foods
-
         </a>
 
     </div>
 
     <div class="hero-image">
 
-        <img src="{% static 'images/food.png' %}"
-             alt="Food Donation">
+        <img src="{% static 'images/food.png' %}" alt="Food Donation">
 
     </div>
 
@@ -45,43 +28,20 @@
 <div class="cards">
 
     <div class="card">
-
         <h2>Food Donation</h2>
-
-        <p>
-
-            Restaurants can donate extra food.
-
-        </p>
-
+        <p>Restaurants can donate extra food.</p>
     </div>
 
     <div class="card">
-
         <h2>NGO Claims</h2>
-
-        <p>
-
-            NGOs can claim available food.
-
-        </p>
-
+        <p>NGOs can claim available food.</p>
     </div>
 
     <div class="card">
-
         <h2>Delivery System</h2>
-
-        <p>
-
-            Volunteers deliver food safely.
-
-        </p>
-
+        <p>Volunteers deliver food safely.</p>
     </div>
 
 </div>
 
 {% endblock %}
-</body>
-</html>

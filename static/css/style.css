@@ -114,101 +114,13 @@ body{
 .card h2{
     color:#2d6a4f;
 }
-.food-page {
-    padding: 25px;
+
+.food-page{
+
+    padding:25px;
 }
 
-.food-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.food-header h2 {
-    color: #0b3d2e;
-}
-
-.add-btn {
-    background: #0b3d2e;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.add-btn:hover {
-    background: #145c45;
-}
-
-.food-grid{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:20px;
-}
-
-.food-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border-left: 5px solid #0b3d2e;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.food-title {
-    color: #0b3d2e;
-    margin-bottom: 10px;
-}
-
-.actions {
-    margin-top: 10px;
-}
-
-.actions a {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #0b3d2e;
-}
-.nav-links a:hover{
-
-    color:#95d5b2;
-}
-
-.btn:hover{
-
-    background:#1b4332;
-}
-
-.card:hover{
-
-    transform:translateY(-5px);
-
-    transition:0.3s;
-}
-.login-btn{
-
-    border:1px solid white;
-
-    padding:8px 18px;
-
-    border-radius:5px;
-}
-
-.register-btn{
-
-    background:#95d5b2;
-
-    color:#1b4332 !important;
-
-    padding:8px 18px;
-
-    border-radius:5px;
-}
-
-.hero-section{
+.food-header{
 
     display:flex;
 
@@ -216,37 +128,183 @@ body{
 
     align-items:center;
 
-    margin-top:40px;
+    margin-bottom:25px;
 }
 
-.hero-text{
+.food-heading{
 
-    width:50%;
+    color:#0b3d2e;
+
+    font-size:30px;
 }
 
-.hero-text h1{
+.add-btn{
 
-    font-size:55px;
+    background:#0b3d2e;
 
-    color:black;
+    color:white;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
 }
 
-.hero-text p{
+.add-btn:hover{
+
+    background:#145c45;
+}
+
+/* =========================
+   FOOD GRID (FIXED)
+========================= */
+
+.food-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+
+    gap:20px;
+}
+
+/* =========================
+   FOOD CARD
+========================= */
+
+.food-card{
+
+    background:white;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    border-left:5px solid #0b3d2e;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:0.3s;
+}
+
+.food-card:hover{
+
+    transform:translateY(-5px);
+}
+
+/* IMAGE */
+
+.food-card img{
+
+    width:100%;
+
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+}
+
+/* TEXT */
+
+.food-content h2{
+
+    color:#0b3d2e;
 
     font-size:20px;
 
-    margin-bottom:30px;
-
-    color:#555;
+    margin-bottom:8px;
 }
 
-.hero-image img{
+.food-content p{
 
-    width:500px;
+    margin:6px 0;
+
+    color:#444;
+
+    font-size:15px;
 }
 
+/* STATUS */
 
+.status{
 
+    display:inline-block;
+
+    background:#d8f3dc;
+
+    color:#1b4332;
+
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+/* ACTION BUTTONS */
+
+.actions{
+
+    margin-top:auto;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.edit-btn{
+
+    background:#0b3d2e;
+
+    color:white !important;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    font-size:14px;
+}
+
+.edit-btn:hover{
+
+    background:#145c45;
+}
+
+.delete-btn{
+
+    background:#b00020;
+
+    color:white !important;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    font-size:14px;
+}
+
+.delete-btn:hover{
+
+    background:#d90429;
+}
 
 
 
@@ -1081,4 +1139,117 @@ body{
     border-radius:10px;
     flex:1;
     box-shadow:0px 0px 10px lightgray;
+}
+
+/* ================= SAFE FIX ONLY (DO NOT TOUCH EXISTING DESIGN) ================= */
+
+/* FOOD GRID FIX ONLY */
+
+.food-page .food-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.food-page .food-card img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.food-page .food-card .actions{
+    margin-top:auto;
+}
+
+/* FOOD CARD FIX */
+.food-card{
+    display:flex;
+    flex-direction:column;
+}
+
+/* IMAGE FIX */
+.food-card img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* PREVENT ACTION BUTTON STRETCH */
+.food-card .actions{
+    margin-top:auto;
+}
+
+/* AVOID GLOBAL ACTION CONFLICT (FOOD ONLY) */
+.food-card .actions a{
+    display:inline-block;
+}
+
+/* SAFE RESET FOR FOOD PAGE ONLY */
+.food-page{
+    overflow:hidden;
+}
+
+/* ================= FOOD PAGE ONLY FIX (SAFE) ================= */
+
+.food-page .food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:20px;
+}
+
+.food-page .food-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.food-page .food-card img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.food-page .food-card .actions{
+    margin-top:auto;
+}
+
+
+
+.hero-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.hero-image img{
+    width:450px;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .hero-section{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-image{
+        justify-content:center;
+    }
 }

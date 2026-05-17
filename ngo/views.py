@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 
 from .models import NGO, Volunteer
@@ -26,6 +27,7 @@ def volunteer_list(request):
                   'ngo/volunteer_list.html',
                   {'volunteers': volunteers})
 
+@login_required
 def create_ngo(request):
 
     if request.method == 'POST':
@@ -45,7 +47,7 @@ def create_ngo(request):
     return render(request,
                   'ngo/forms.html',
                   {'form': form})
-
+@login_required
 def update_ngo(request,id):
 
     ngo = NGO.objects.get(pk=id)
@@ -69,44 +71,39 @@ def update_ngo(request,id):
                   'ngo/forms.html',
                   {'form': form})
 
+@login_required
+
 def create_volunteer(request):
 
     if request.method == 'POST':
 
-        form = VolunteerForm(request.POST)
+        form = VolunteerForm(request.POST, request.FILES)
 
         if form.is_valid():
-
             form.save()
-
             return redirect('/ngo/volunteers/')
 
     else:
-
         form = VolunteerForm()
 
-    return render(request,
-                  'ngo/forms.html',
-                  {'form': form})
-def update_volunteer(request,id):
+    return render(request, 'ngo/forms.html', {'form': form})
+
+
+@login_required
+@login_required
+def update_volunteer(request, id):
 
     volunteer = Volunteer.objects.get(pk=id)
 
     if request.method == 'POST':
 
-        form = VolunteerForm(request.POST,
-                             instance=volunteer)
+        form = VolunteerForm(request.POST, request.FILES, instance=volunteer)
 
         if form.is_valid():
-
             form.save()
-
             return redirect('/ngo/volunteers/')
 
     else:
-
         form = VolunteerForm(instance=volunteer)
 
-    return render(request,
-                  'ngo/forms.html',
-                  {'form': form})
+    return render(request, 'ngo/forms.html', {'form': form})

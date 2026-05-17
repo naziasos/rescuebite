@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
@@ -9,17 +8,14 @@
     <div class="food-header">
 
         <h1 class="food-heading">
-
             Available Food Items
-
         </h1>
 
-        <a href="{% url 'create_food' %}"
-           class="add-btn">
-
+        {% if user.is_authenticated %}
+        <a href="{% url 'create_food' %}" class="add-btn">
             + Add Food
-
         </a>
+        {% endif %}
 
     </div>
 
@@ -29,67 +25,54 @@
 
         <div class="food-card">
 
-            {% if food.food_name == 'Rice' %}
-
-            <img src="{% static 'images/rice.jpg' %}"
-                 alt="Rice">
-
+            <!-- IMAGE FIXED LOGIC -->
+            {% if food.image %}
+                <img src="{{ food.image.url }}" alt="{{ food.food_name }}">
             {% else %}
-
-            <img src="{% static 'images/foodpic1.jpg' %}"
-                 alt="Food">
-
+                <img src="{% static 'images/foodpic1.jpg' %}" alt="Default Food">
             {% endif %}
 
             <div class="food-content">
 
-                <h2>
+                <h2>{{ food.food_name }}</h2>
 
-                    {{ food.food_name }}
+                <p>Quantity: {{ food.quantity }}</p>
 
-                </h2>
-
-                <p>
-
-                    Quantity:
-                    {{ food.quantity }}
-
-                </p>
+                <p>Restaurant: {{ food.restaurant.username }}</p>
 
                 <p>
-
-                    Restaurant:
-                    {{ food.restaurant.username }}
-
+                    <b>Expiry Date:</b> {{ food.expiry_date }}
                 </p>
 
                 <span class="status">
-
                     {{ food.status }}
-
                 </span>
+
+                {% if user.is_authenticated %}
 
                 <div class="actions">
 
-                    <a href="{% url 'update_food' food.id %}"
-                       class="edit-btn">
-
+                    <a href="{% url 'update_food' food.id %}" class="edit-btn">
                         Edit
-
                     </a>
 
-                    <a href="{% url 'delete_food' food.id %}"
-                       class="delete-btn">
-
+                    <a href="{% url 'delete_food' food.id %}" class="delete-btn">
                         Delete
-
                     </a>
 
                 </div>
 
+                {% endif %}
+
             </div>
 
         </div>
+
+        {% empty %}
+
+        <p style="text-align:center;">
+            No food items available.
+        </p>
 
         {% endfor %}
 

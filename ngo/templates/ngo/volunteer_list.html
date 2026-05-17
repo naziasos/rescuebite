@@ -5,25 +5,17 @@
 
 <div class="volunteer-page">
 
-    <!-- ================= HEADER ================= -->
-
     <div class="volunteer-header">
 
-        <h2>
+        <h2>Volunteer List</h2>
 
-            Volunteer List
-
-        </h2>
-
+        {% if user.is_authenticated %}
         <a href="{% url 'create_volunteer' %}" class="add-btn">
-
             + Add Volunteer
-
         </a>
+        {% endif %}
 
     </div>
-
-    <!-- ================= GRID ================= -->
 
     <div class="volunteer-grid">
 
@@ -31,88 +23,51 @@
 
         <div class="volunteer-card">
 
-            <!-- PROFILE ROW -->
-
             <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px;">
 
-                <!-- AVATAR -->
-
+                <!-- AVATAR FIXED -->
                 <div class="avatar">
 
-                    {% if volunteer.profile_pic %}
-
-                        <img src="{{ volunteer.profile_pic.url }}" alt="profile">
-
+                    {% if volunteer.image %}
+                        <img src="{{ volunteer.image.url }}" alt="profile">
                     {% else %}
-
                         {{ volunteer.user.username|first|upper }}
-
                     {% endif %}
 
                 </div>
 
-                <!-- NAME + STATUS -->
-
                 <div>
 
-                    <h3>
+                    <h3>{{ volunteer.user.username }}</h3>
 
-                        {{ volunteer.user.username }}
-
-                    </h3>
-
-                    <span class="status">
-
-                        ● ACTIVE
-
-                    </span>
+                    <span class="status">● ACTIVE</span>
 
                 </div>
 
             </div>
 
-            <!-- INFO -->
+            <p><b>NGO:</b> {{ volunteer.ngo.ngo_name }}</p>
 
-            <p>
+            <p><b>Vehicle:</b> {{ volunteer.vehicle }}</p>
 
-                <b>NGO:</b> {{ volunteer.ngo.ngo_name }}
+            <p><b>Phone:</b> {{ volunteer.phone }}</p>
 
-            </p>
-
-            <p>
-
-                <b>Vehicle:</b> {{ volunteer.vehicle }}
-
-            </p>
-
-            <p>
-
-                <b>Phone:</b> {{ volunteer.phone }}
-
-            </p>
-
-            <!-- UPDATE BUTTON -->
-
+            {% if user.is_authenticated %}
             <div class="actions">
 
                 <a href="{% url 'update_volunteer' volunteer.id %}">
-
                     Update
-
                 </a>
 
             </div>
+            {% endif %}
 
         </div>
 
         {% empty %}
-
         <p style="text-align:center; width:100%;">
-
             No volunteers available.
-
         </p>
-
         {% endfor %}
 
     </div>
