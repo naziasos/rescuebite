@@ -6,7 +6,19 @@
 <div class="claim-page">
 
     <div class="claim-header">
-        <h2>Food Claims</h2>
+
+    <h2 class="claim-title">
+        Food Claims
+    </h2>
+
+    <div class="claim-btn">
+
+        {% if user.is_authenticated %}
+            <a href="/donation/create-claim/" class="add-btn">
+                + Add Claim
+            </a>
+        {% endif %}
+    </div>
     </div>
 
     <div class="claim-grid">
@@ -43,13 +55,11 @@
 
                 <div class="actions">
 
-                    <a href="/donation/update-claim/{{ claim.id }}/">
-                        Update
-                    </a>
-
-                    <a href="/donation/delete-claim/{{ claim.id }}/">
-                        Delete
-                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="/donation/update-claim/{{ claim.id }}/" class="edit-btn">
+                            Update
+                        </a>
+                    {% endif %}
 
                 </div>
 

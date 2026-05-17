@@ -52,8 +52,11 @@ def create_food(request):
         form = FoodItemForm()
 
     return render(request,
-                  'donation/forms.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Add Food'
+                  })
 @login_required
 def update_food(request,id):
 
@@ -75,8 +78,11 @@ def update_food(request,id):
         form = FoodItemForm(instance=food)
 
     return render(request,
-                  'donation/forms.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Update Food'
+                  })
 
 @login_required
 def delete_food(request,id):
@@ -104,8 +110,11 @@ def create_claim(request):
         form = ClaimForm()
 
     return render(request,
-                  'donation/claim_form.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Add Food'
+                  })
 
 def update_claim(request,id):
 
@@ -127,5 +136,8 @@ def update_claim(request,id):
         form = ClaimForm(instance=claim)
 
     return render(request,
-                  'donation/claim_form.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Update Food'
+                  })

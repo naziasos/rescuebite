@@ -3,20 +3,46 @@
 
 {% block content %}
 
+<!-- HERO SECTION -->
+
 <div class="hero-section">
 
+    <!-- LEFT SIDE -->
     <div class="hero-text">
 
-        <h1>Save Food, Save Lives</h1>
+        <h1>
+            Save Food,<br>
+            Save Lives
+        </h1>
 
-        <p>Donate extra food and help people in need.</p>
+        <p>
+            Donate extra food and help people in need.
+        </p>
 
         <a href="/donation/foods/" class="btn">
             Donate Foods
         </a>
 
+        <!-- STATS -->
+        <div class="hero-stats">
+
+            <div class="mini-stat">
+                🍱 20+ Food Donated
+            </div>
+
+            <div class="mini-stat">
+                🏢 5+ NGOs Connected
+            </div>
+
+            <div class="mini-stat">
+                ❤️ 50+ People Helped
+            </div>
+
+        </div>
+
     </div>
 
+    <!-- RIGHT SIDE -->
     <div class="hero-image">
 
         <img src="{% static 'images/food.png' %}" alt="Food Donation">
@@ -25,21 +51,44 @@
 
 </div>
 
+<!-- FEATURE CARDS -->
+
 <div class="cards">
 
     <div class="card">
+
+        <div class="icon">🍲</div>
+
         <h2>Food Donation</h2>
-        <p>Restaurants can donate extra food.</p>
+
+        <p>
+            Donate extra food to reduce waste.
+        </p>
+
     </div>
 
     <div class="card">
+
+        <div class="icon">🏢</div>
+
         <h2>NGO Claims</h2>
-        <p>NGOs can claim available food.</p>
+
+        <p>
+            NGOs can request and collect food.
+        </p>
+
     </div>
 
     <div class="card">
+
+        <div class="icon">🚚</div>
+
         <h2>Delivery System</h2>
-        <p>Volunteers deliver food safely.</p>
+
+        <p>
+            Volunteers help deliver food quickly.
+        </p>
+
     </div>
 
 </div>

@@ -28,9 +28,11 @@ def create_delivery(request):
         form = DeliveryForm()
 
     return render(request,
-                  'delivery/forms.html',
-                  {'form': form})
-
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Add Delivery'
+                  })
 @login_required
 
 def update_delivery(request,id):
@@ -53,5 +55,8 @@ def update_delivery(request,id):
         form = DeliveryForm(instance=delivery)
 
     return render(request,
-                  'delivery/forms.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Update Delivery'
+                  })

@@ -45,8 +45,11 @@ def create_ngo(request):
         form = NGOForm()
 
     return render(request,
-                  'ngo/forms.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Add NGO'
+                  })
 @login_required
 def update_ngo(request,id):
 
@@ -68,8 +71,11 @@ def update_ngo(request,id):
         form = NGOForm(instance=ngo)
 
     return render(request,
-                  'ngo/forms.html',
-                  {'form': form})
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Update NGO'
+                  })
 
 @login_required
 
@@ -86,7 +92,12 @@ def create_volunteer(request):
     else:
         form = VolunteerForm()
 
-    return render(request, 'ngo/forms.html', {'form': form})
+    return render(request,
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Add Volunteer'
+                  })
 
 
 @login_required
@@ -106,4 +117,9 @@ def update_volunteer(request, id):
     else:
         form = VolunteerForm(instance=volunteer)
 
-    return render(request, 'ngo/forms.html', {'form': form})
+    return render(request,
+                  'forms.html',
+                  {
+                      'form': form,
+                      'title': 'Update Volunteer'
+                  })
